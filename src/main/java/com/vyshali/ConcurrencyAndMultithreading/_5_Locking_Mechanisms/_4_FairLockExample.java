@@ -1,4 +1,4 @@
-package com.vyshali.ConcurrencyAndMultithreading.SynchronizationAndLocks;
+package com.vyshali.ConcurrencyAndMultithreading._5_Locking_Mechanisms;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -7,7 +7,7 @@ Explanation:
 Fairness reduces thread starvation by granting the lock to the longest-waiting thread.
  */
 
-public class FairLockExample {
+public class _4_FairLockExample {
     private final ReentrantLock lock = new ReentrantLock(true);
 
     // Create a fair lock (longest-waiting thread gets priority)
@@ -27,7 +27,7 @@ public class FairLockExample {
     }
 
     public static void main(String[] args) {
-        FairLockExample fle = new FairLockExample();
+        _4_FairLockExample fle = new _4_FairLockExample();
 
         // Create 3 threads
         for(int i = 0; i < 3; i++) {

@@ -1,4 +1,4 @@
-package com.vyshali.ConcurrencyAndMultithreading.SynchronizationAndLocks;
+package com.vyshali.ConcurrencyAndMultithreading._2_Thread_Synchronization._2_volatile_Keyword;
 
 public class VolatileFixedExample {
     public static volatile boolean flag = true;

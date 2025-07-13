@@ -1,4 +1,4 @@
-package com.vyshali.ConcurrencyAndMultithreading.SynchronizationAndLocks;
+package com.vyshali.ConcurrencyAndMultithreading._5_Locking_Mechanisms;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -7,7 +7,7 @@ Explanation:
 t2 is interrupted while waiting for the lock and exits gracefully.
  */
 
-public class InterruptibleLockExample {
+public class _5_InterruptibleLockExample {
     private final ReentrantLock lock = new ReentrantLock();
 
     public void interruptibleTask() {
@@ -26,7 +26,7 @@ public class InterruptibleLockExample {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        InterruptibleLockExample ile = new InterruptibleLockExample();
+        _5_InterruptibleLockExample ile = new _5_InterruptibleLockExample();
 
         Thread t1 = new Thread(ile::interruptibleTask);
         Thread t2 = new Thread(ile::interruptibleTask);

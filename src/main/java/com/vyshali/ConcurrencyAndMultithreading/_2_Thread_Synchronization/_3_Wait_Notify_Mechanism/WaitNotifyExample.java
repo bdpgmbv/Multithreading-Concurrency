@@ -1,4 +1,4 @@
-package com.vyshali.ConcurrencyAndMultithreading.ThreadCommunication;
+package com.vyshali.ConcurrencyAndMultithreading._2_Thread_Synchronization._3_Wait_Notify_Mechanism;
 
 public class WaitNotifyExample {
     public static void main(String[] args) {

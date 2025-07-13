@@ -1,4 +1,4 @@
-package com.vyshali.ConcurrencyAndMultithreading.SynchronizationAndLocks;
+package com.vyshali.ConcurrencyAndMultithreading._2_Thread_Synchronization._1_sychronized_Keyword;
 
 public class SynchronizedMethodUnsafeCounter {
    private int count = 0;

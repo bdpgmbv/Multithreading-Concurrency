@@ -1,4 +1,4 @@
-package com.vyshali.ConcurrencyAndMultithreading.SynchronizationAndLocks;
+package com.vyshali.ConcurrencyAndMultithreading._5_Locking_Mechanisms;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -7,7 +7,7 @@ Explanation:
 Only one thread executes the criticalSection() at a time. The lock() and unlock() calls ensure mutual exclusion.
  */
 
-public class BasicReentrantLock {
+public class _1_BasicReentrantLock {
     private final ReentrantLock lock = new ReentrantLock();
 
     public void criticalSection() {
@@ -24,7 +24,7 @@ public class BasicReentrantLock {
     }
 
     public static void main(String[] args) {
-        BasicReentrantLock brl = new BasicReentrantLock();
+        _1_BasicReentrantLock brl = new _1_BasicReentrantLock();
         for(int i = 0; i < 3; i++) {
             new Thread(brl::criticalSection).start();
         }

@@ -1,4 +1,4 @@
-package com.vyshali.ConcurrencyAndMultithreading.SynchronizationAndLocks;
+package com.vyshali.ConcurrencyAndMultithreading._5_Locking_Mechanisms;
 
 /*
 Explanation:
@@ -8,7 +8,7 @@ Thread-0 acquires the lock and holds it for 3 seconds. Thread-1 times out after 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class TryLockExample {
+public class _3_TryLockExample {
     private final ReentrantLock lock = new ReentrantLock();
 
     public void performTask() throws InterruptedException {
@@ -28,7 +28,7 @@ public class TryLockExample {
     }
 
     public static void main(String[] args) {
-        TryLockExample tle = new TryLockExample();
+        _3_TryLockExample tle = new _3_TryLockExample();
 
         new Thread(() -> {
             try {

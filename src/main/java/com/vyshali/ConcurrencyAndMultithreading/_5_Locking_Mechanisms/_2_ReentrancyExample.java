@@ -1,4 +1,4 @@
-package com.vyshali.ConcurrencyAndMultithreading.SynchronizationAndLocks;
+package com.vyshali.ConcurrencyAndMultithreading._5_Locking_Mechanisms;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -7,7 +7,7 @@ Explanation:
 The same thread acquires the lock in outer(), then reacquires it in inner() without deadlocking.
  */
 
-public class ReentrancyExample {
+public class _2_ReentrancyExample {
     private final ReentrantLock lock = new ReentrantLock();
 
     public void outer() {
@@ -38,7 +38,7 @@ public class ReentrancyExample {
     }
 
     public static void main(String[] args) {
-        ReentrancyExample re = new ReentrancyExample();
+        _2_ReentrancyExample re = new _2_ReentrancyExample();
         re.outer();
     }
 }
