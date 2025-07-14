@@ -1,4 +1,4 @@
-package com.vyshali.ConcurrencyAndMultithreading.ThreadPoolsAndExecutors;
+package com.vyshali.ConcurrencyAndMultithreading._4_concurrent;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;

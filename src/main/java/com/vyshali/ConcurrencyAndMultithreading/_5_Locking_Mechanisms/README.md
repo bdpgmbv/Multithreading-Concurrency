@@ -88,3 +88,88 @@ Imagine a library with special rules:
 - **Reading Room:** Many people can read books together.
 - **Writing Room:** Only one person can edit books at a time.
 - **Rule:** When someone is editing, no one can enter either room!
+
+
+# StampedLock Example Program
+
+## What the Program Does (Easy English)
+
+- **Starts with:** Inventory = 10 items
+
+- **Three threads:**
+  - **Optimistic Reader:** Tries quick read without locking.
+  - **Writer:** Updates inventory to 15.
+  - **Regular Reader:** Uses safe read lock.
+
+## Sample Output
+```
+Writer updating inventory...
+Inventory updated to: 15
+Optimistic read FAILED! Data changed during read.
+Safe read value: 15
+
+Regular reader sees: 15
+```
+
+## Concurrency Comments: 
+
+### Optimistic Reading
+```java
+long stamp = lock.tryOptimisticRead(); // 😎 "No lock please!"
+int localInventory = inventory; // Grab value quickly
+```
+- Like quickly checking the fridge while someone might be shopping.
+- Fast but risky – value might change during read.
+
+### Validation Check
+```java
+if (!lock.validate(stamp)) { 
+    // Oops! Writer changed data!
+}
+```
+- Checks if a writer changed data while you were reading.
+- Like checking if the groceries receipt matches fridge contents.
+
+### Fallback to Safe Read
+```java
+stamp = lock.readLock(); // 😟 "Okay, proper lock please"
+localInventory = inventory; // Safe read
+lock.unlockRead(stamp); // 🔓 "Thanks, done!"
+```
+- Used when optimistic read fails.
+- Slower but guaranteed accurate.
+
+### Writer Lock
+```java
+long stamp = lock.writeLock(); // 🔑 "I need exclusive access!"
+inventory = 15; // Update safely
+lock.unlockWrite(stamp); // 🔓 "Done updating!"
+```
+- Blocks all readers and writers.
+- Like putting a "STOCK TAKING" sign on inventory.
+
+### Regular Reader
+```java
+long stamp = lock.readLock(); // 🔑 "Can I safely look?"
+System.out.println(inventory); // Safe read
+lock.unlockRead(stamp); // 🔓 "Done looking!"
+```
+- Always sees the correct value.
+- Waits politely if a writer is working.
+
+## Key Points for Interview
+
+| Situation                      | What Happens                              |
+|---------------------------------|-------------------------------------------|
+| Optimistic read + no writer     |  Success! (Very fast read)               |
+| Optimistic read + writer active |  Fails! Falls back to safe read          |
+| Write lock acquired             |  Blocks all readers/writers              |
+| Regular read lock               |  Safe but slower (waits for writers)     |
+
+### When to Use StampedLock
+
+- When reads are very frequent
+- When you can handle occasional re-reads
+- For simple shared values (counters, flags)
+
+> **Warning:** Optimistic reads are like quick glances—great when usually right, but be ready to double-check!

@@ -1,4 +1,4 @@
-package com.vyshali.ConcurrencyAndMultithreading.CompletableFutures;
+package com.vyshali.ConcurrencyAndMultithreading._9_Advanced_Concepts;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;

@@ -145,15 +145,26 @@
 
 ## 9. Advanced Concepts
 - **Deadlock/Livelock/Starvation**:  
-  Detection, prevention (lock ordering, timeouts)
+- Detection, prevention (lock ordering, timeouts)
+  - (Deadlock: Two threads waiting forever for each other (e.g., both refusing to move in a hallway). 
+  - Livelock: Threads keep retrying but make no progress (e.g., two people stepping aside repeatedly). 
+  - Starvation: One thread never gets a turn (e.g., always skipped in line). 
+  - Prevention: Use timeouts, lock resources in the same order.)
   - **Fork/Join Framework**:
+  - (Break big tasks into small chunks:)
     - `RecursiveTask`,
+    - (Splits work and returns a result (e.g., adding 1 million numbers).)
     - `RecursiveAction`, 
+    - (Splits work with no result (e.g., sorting a list).)
   - work-stealing
+  - (Idle threads "steal" tasks from busy ones.)
 - **CompletableFuture (Java 8+)**:  
-  Asynchronous chaining, composition, error handling
+  - Asynchronous chaining, composition, error handling 
+  - (Chain async tasks: "Do A, then B, then C" without blocking (e.g., "Download file → Process → Save"). Handles errors too!)
 - **ThreadLocal**:  
-  Per-thread data isolation (and pitfalls like memory leaks)
+  - Per-thread data isolation (and pitfalls like memory leaks)
+  - (Gives each thread its own private copy of data (e.g., user ID in a web app). 
+  - Pitfall: Can cause memory leaks if not cleaned up (like forgetting trash in a rented room).)
 
 ## 10. Performance & Scalability
 - **Lock Contention**:  
