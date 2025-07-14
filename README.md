@@ -146,8 +146,10 @@
 ## 9. Advanced Concepts
 - **Deadlock/Livelock/Starvation**:  
   Detection, prevention (lock ordering, timeouts)
-- **Fork/Join Framework**:  
-  `RecursiveTask`, `RecursiveAction`, work-stealing
+  - **Fork/Join Framework**:
+    - `RecursiveTask`,
+    - `RecursiveAction`, 
+  - work-stealing
 - **CompletableFuture (Java 8+)**:  
   Asynchronous chaining, composition, error handling
 - **ThreadLocal**:  
